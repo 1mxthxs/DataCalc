@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+    function getDateFromDays(days) {
+        const date = new Date();
+        date.setDate(date.getDate() + days);
+
+        const day = date.getDate().toString().padStart(2, "0");
+        const month = (date.getMonth() + 1).toString().padStart(2, "0");
+        const year = date.getFullYear();
+
+        return `${day}/${month}/${year}`;
+    }   
+      function subtractDates() {
+        const date1 = new Date(document.getElementById("date1").value);
+        const date2 = new Date(document.getElementById("date2").value);
+        const diffTime = Math.abs(date2 - date1);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+        let result = "";
+        result += diffDays + " dia(s)";
+        //result = getDateFromDays(diffDays);
+
+        document.getElementById("result").innerHTML = result;
+      }
+    </script>
+  </head>
+  <body>
+    <p>Data 1: <input type="date" id="date1"></p>
+    <p>Data 2: <input type="date" id="date2"></p>
+    <button onclick="subtractDates()">Calcular</button>
+    <p id="result"></p>
+  </body>
+</html>
