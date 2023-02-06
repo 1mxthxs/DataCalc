@@ -17,7 +17,7 @@ main header{
     margin: auto;
     display: block;
 }
-#conteiner{
+#container{
     margin: auto;
     min-width: 400px;
     max-width: 500px;
@@ -40,10 +40,10 @@ main header{
 #input div input:focus{
     outline: none;
 }
-#conteiner #send{
+#container #send{
     margin-top: 35px;
 }
-#conteiner #send input{   
+#container #send input{   
     display: block;
     margin:auto;
     width: 100%;
@@ -54,21 +54,10 @@ main header{
     border-radius: 10px;
     background: #0808fa;
 }
-#conteiner #imgDemostração{
-    display: block;
+#container #result{
+    box-shadow: 0px 1px 0px rgba(0,0,0);
     margin: auto;
-    text-align: center;
-    margin-top: 30px;
-    
-    min-width: 380px;
-    max-width: 480px;
-    
-}
-#conteiner #imgDemostração img{
-    border-radius: 15px;
-    width: 94%;
-    
-}
-#conteiner #resultado{
+    width:250px;
+    margin-top: 20px;
     text-align: center;
 }

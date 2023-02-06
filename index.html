@@ -16,19 +16,18 @@
         </header>
 
         
-        <div id="conteiner">            
+        <div id="container">            
             <div id="input">
                 <div>
                     <p>Insira a 1° Data</p>
-                    <input type="date" name="start" id="start">
+                    <input type="date" name="date1Input" id="date1Input">
                 </div>
                 <div>
                     <p>Insira a 2° Data</p>
-                    <input type="date" name="end" id="end">
+                    <input type="date" name="date2Input" id="date2Input">
                 </div>
             </div>
-            
-            <div id="checkbox">
+           <!--- <div id="checkbox">
                 <div>
                     <input type="radio" name="radbox" id="b1" checked>
                     <label for="box1">+</label>
@@ -37,52 +36,38 @@
                     <input type="radio" name="radbox" id="b2">
                     <label for="box2">-</label>
                 </div>
-            </div>
-
+            </div>-->
             <div id="send">
                 <input type="button" value="CALCULAR" onclick="calcular()">
             </div>
-
-            <div id="resultado"> 
-                
-            </div>
-        
+            <div id="result"></div>
         </div>  
     </main>
     
-    <script>
-function calcular(){
-    var data1 = document.getElementById('start').value;
-    var data2 = document.getElementById('end').value;
-    var res = document.getElementById('resultado');
-    var fbox = document.getElementById('radbox');
+<script>
+    function calcular(){
+        var date1Input = document.getElementById("date1Input").value;
+        var date2Input = document.getElementById("date2Input").value;
+        var res = document.getElementById('result');
 
-
-
-   if(data1.length == 0 || data2.length == 0){
-        res.innerHTML = 'Inválido!';
-        alert("[ERRO]Confira seu dados!");
-    }
-    else{
-        
-        const date1 = new Date(data1);
-        const date2 = new Date(data2);
-        const diffTime = Math.abs(date2 - date1);
-        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-        //let result = "";
-        //result += diffDays + " dia(s)";
-        res.innerHTML = `${diffDays} dias`;
-
-        /*if(fbox[0].checked){
+        if(date1Input.length == 0 || date2Input.length == 0){
+            res.innerHTML = 'Inválido!';
+            alert("[ERRO]Confira seu dados!");
+        }
+        else{
+            var date1 = new Date(date1Input);
+            var date2 = new Date(date2Input);
+            var diffInMilliseconds = Math.abs(date1.getTime() - date2.getTime());
+            var diffInDays = diffInMilliseconds / (1000 * 3600 * 24);
+            var diffInYears = diffInDays / 365;
+            var diffInMonths = diffInYears * 12;
+            var years = Math.floor(diffInYears);
+            var months = Math.floor(diffInMonths % 12);
+            var days = Math.floor(diffInDays % 365 % 30);
+            res.innerHTML = days + " dias, " + months + " meses e " + years + " anos";
 
         }
-        if(fbox[1].checked){
-
-         
-        }*/
     }
-}
-    </script>
+</script>
 </body>
 </html>
